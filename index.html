@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEERINGJB | CS 1.6 Jailbreak</title>
+<meta name="description" content="STEERINGJB - CS 1.6 Jailbreak topluluğu">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:#07090d;color:#f4f7fb;overflow-x:hidden}
+:root{--orange:#ff6a00;--blue:#168cff;--card:#10141b;--line:#252c36;--muted:#9aa5b4}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:
+radial-gradient(circle at 80% 10%,rgba(255,106,0,.12),transparent 30%),
+radial-gradient(circle at 20% 80%,rgba(22,140,255,.09),transparent 28%);z-index:-1}
+a{text-decoration:none;color:inherit}
+.sidebar{position:fixed;left:0;top:0;width:265px;height:100vh;background:rgba(9,12,17,.94);border-right:1px solid var(--line);padding:28px 18px;z-index:20;backdrop-filter:blur(16px)}
+.logo{padding:8px 12px 28px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.logo h1{font-size:28px;letter-spacing:4px;font-weight:900}.logo span{color:var(--orange)}
+.logo p{font-size:11px;color:var(--muted);letter-spacing:3px;margin-top:6px}
+.nav a{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:10px;color:#aeb7c4;margin:5px 0;transition:.2s;font-size:14px}
+.nav a:hover{background:#151b23;color:#fff;transform:translateX(3px)}
+.nav a.active{background:linear-gradient(90deg,rgba(255,106,0,.17),rgba(22,140,255,.08));color:#fff;border-left:3px solid var(--orange)}
+.side-bottom{position:absolute;bottom:20px;left:20px;right:20px;color:#707b8a;font-size:11px;line-height:1.6}
+.main{margin-left:265px}
+section{padding:90px 7%;min-height:100vh}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative}
+.hero-grid{max-width:1150px;width:100%;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid #2a333e;background:#0d1117;padding:8px 12px;border-radius:999px;color:#b8c1cd;font-size:12px;margin-bottom:22px}
+.dot{width:7px;height:7px;border-radius:50%;background:#36dc83;box-shadow:0 0 14px #36dc83}
+.hero h2{font-size:clamp(48px,7vw,92px);line-height:.92;letter-spacing:-4px;font-weight:950}
+.hero h2 span{color:var(--orange)}
+.hero .lead{color:#aeb7c4;font-size:18px;line-height:1.7;max-width:650px;margin:24px 0}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:14px 20px;border-radius:10px;font-weight:800;font-size:14px;border:1px solid var(--line);transition:.2s;cursor:pointer}
+.btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,106,0,.22)}
+.btn.secondary{background:#111720}.btn.secondary:hover{border-color:#3d4857}
+.server-card{background:linear-gradient(145deg,#121821,#0c1016);border:1px solid #27303b;border-radius:20px;padding:25px;box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.server-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}.server-top strong{font-size:12px;letter-spacing:2px}.online{color:#36dc83;font-size:11px}
+.ip{font-size:28px;font-weight:900;letter-spacing:1px;margin:8px 0}.ip small{display:block;color:var(--muted);font-size:11px;font-weight:500;letter-spacing:0}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.stat div{background:#0a0e14;border:1px solid #1e2630;border-radius:10px;padding:14px}.stat b{display:block;font-size:17px}.stat span{color:var(--muted);font-size:10px}
+.title{max-width:900px;margin-bottom:38px}.eyebrow{color:var(--orange);font-weight:900;font-size:12px;letter-spacing:3px;margin-bottom:10px}.title h3{font-size:42px;letter-spacing:-1.5px}.title p{color:var(--muted);margin-top:12px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1100px}
+.card{background:rgba(16,20,27,.82);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.25s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:#3b4654}
+.card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--orange),var(--blue));opacity:.8}
+.card h4{font-size:18px;margin-bottom:14px}.card p{color:var(--muted);line-height:1.7;font-size:14px}
+.price-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #202733;padding-top:13px;margin-top:13px;font-size:14px}.price-row strong{color:#fff}.price{color:var(--orange);font-weight:900}
+.owner{display:flex;align-items:center;gap:15px}.avatar{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#ff6a00,#168cff);font-weight:950}.owner span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.feature{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px}.feature .card{min-height:155px}.icon{font-size:25px;margin-bottom:15px}
+.notice{margin-top:20px;padding:18px;border:1px solid #5a351c;background:rgba(255,106,0,.06);border-radius:12px;color:#c6cbd3;line-height:1.7;font-size:13px;max-width:1100px}
+footer{margin-left:265px;padding:35px 7%;border-top:1px solid var(--line);color:#697585;font-size:12px;display:flex;justify-content:space-between}
+.mobile{display:none}
+@media(max-width:900px){
+.sidebar{width:230px}.main,footer{margin-left:230px}.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr 1fr}
+}
+@media(max-width:650px){
+.sidebar{display:none}.mobile{display:flex;position:fixed;top:12px;right:12px;z-index:30;background:#10151d;border:1px solid var(--line);padding:10px;border-radius:10px}.main,footer{margin-left:0}section{padding:80px 5%}.hero h2{font-size:54px}.feature{grid-template-columns:1fr}.grid{grid-template-columns:1fr}footer{padding:25px 5%;display:block}
+}
+
+/* STEERINGJB modern additions */
+::selection{background:var(--orange);color:#fff}
+body{background:
+ radial-gradient(circle at 75% 5%,rgba(255,106,0,.10),transparent 26%),
+ radial-gradient(circle at 10% 65%,rgba(22,140,255,.07),transparent 25%),
+ #07090d}
+.logo h1{font-size:27px;text-shadow:0 0 22px rgba(255,106,0,.18)}
+.card,.server-card{box-shadow:0 18px 55px rgba(0,0,0,.18)}
+.card:hover{box-shadow:0 18px 50px rgba(255,106,0,.07)}
+.contact-grid .card{min-height:220px}
+.contact-grid .price-row a:hover{text-decoration:underline}
+.btn{position:relative;overflow:hidden}
+.btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.12),transparent 70%);transform:translateX(-110%);transition:.45s}
+.btn:hover:after{transform:translateX(110%)}
+.badge{box-shadow:0 0 25px rgba(54,220,131,.05)}
+
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="logo"><h1>STEERING<span>JB</span></h1><p>JAILBREAK GAMING</p></div>
+  <nav class="nav">
+    <a class="active" href="#home">⌂ <span>Ana Sayfa</span></a>
+    <a href="#prices">💰 <span>Adminlik Fiyatları</span></a>
+    <a href="#owners">👑 <span>Sunucu Sahipleri</span></a>
+    <a href="#premium">💎 <span>Premium</span></a>
+    <a href="#jpoint">🪙 <span>JPoint</span></a>
+    <a href="#connect">🎮 <span>Sunucuya Bağlan</span></a>
+    <a href="#contact">📱 <span>İletişim</span></a>
+  </nav>
+  <div class="side-bottom">STEERINGJB JAILBREAK<br>95.173.173.120<br><br>© 2026 STEERINGJB</div>
+</aside>
+
+<div class="mobile">☰</div>
+
+<main class="main">
+<section id="home" class="hero">
+<div class="hero-grid">
+<div>
+  <div class="badge"><i class="dot"></i> SUNUCU AKTİF • CS 1.6 JAILBREAK</div>
+  <h2>STEERING<br><span>JAILBREAK</span></h2>
+  <p class="lead">Aile ortamı, özel sistemler ve klasik CS 1.6 Jailbreak deneyimi. STEERINGJB dünyasına katıl, ekibini kur ve sunucudaki yerini al.</p>
+  <div class="buttons">
+    <a class="btn primary" href="steam://connect/95.173.173.120">🎮 Sunucuya Bağlan</a>
+    <a class="btn secondary" href="#prices">💰 Fiyatları Gör</a>
+  </div>
+</div>
+<div class="server-card">
+  <div class="server-top"><strong>STEERINGJB SERVER</strong><span class="online">● ONLINE</span></div>
+  <div class="ip">95.173.173.120<small>CS 1.6 SUNUCU IP</small></div>
+  <div class="stat"><div><b>JAILBREAK</b><span>MOD</span></div><div><b>STEERING</b><span>NETWORK</span></div><div><b>TS3</b><span>SES SUNUCUSU</span></div><div><b>24/7</b><span>AKTİF</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="prices">
+<div class="title"><div class="eyebrow">STEERING STORE</div><h3>Adminlik Fiyatları</h3><p>Yetki alımları ve sunucu içi ayrıcalıklar için güncel liste.</p></div>
+<div class="grid">
+<div class="card"><h4>Admin Server Query</h4><div class="price-row"><span>1 Aylık</span><strong class="price">3700 TL</strong></div><div class="price-row"><span>Sınırsız</span><strong class="price">4850 TL</strong></div></div>
+<div class="card"><h4>King Of The Steering</h4><div class="price-row"><span>1 Aylık</span><strong class="price">2500 TL</strong></div><div class="price-row"><span>Sınırsız</span><strong class="price">3000 TL</strong></div></div>
+<div class="card"><h4>Lord Of The Steering</h4><div class="price-row"><span>1 Aylık</span><strong class="price">2000 TL</strong></div><div class="price-row"><span>Sınırsız</span><strong class="price">2800 TL</strong></div></div>
+<div class="card"><h4>World Of The Steering</h4><div class="price-row"><span>1 Aylık</span><strong class="price">800 TL</strong></div><div class="price-row"><span>Sınırsız</span><strong class="price">1300 TL</strong></div></div>
+<div class="card"><h4>Wizard Of The Steering</h4><div class="price-row"><span>1 Aylık</span><strong class="price">700 TL</strong></div><div class="price-row"><span>Sınırsız</span><strong class="price">1000 TL</strong></div></div>
+<div class="card"><h4>Ek Yetki</h4><div class="price-row"><span>1 Aylık</span><strong class="price">1200 TL</strong></div><div class="price-row"><span>T Hook • Sınırsız</span><strong class="price">Özel</strong></div></div>
+</div>
+<div class="notice">⚠️ Yetki alımları için <b>Fıratbey*</b> ile iletişim kurun. Ücret iadesi yoktur. Kurallara uymayan veya kafasına göre işlem yapanlara uyarı verilir; devamında yetki silinebilir.</div>
+</section>
+
+<section id="owners">
+<div class="title"><div class="eyebrow">STEERING MANAGEMENT</div><h3>Sunucu Sahipleri</h3><p>STEERINGJB Jailbreak yönetim kadrosu.</p></div>
+<div class="grid">
+<div class="card owner"><div class="avatar">F</div><div><h4>FıratBey*</h4><span>Kurucu</span></div></div>
+<div class="card owner"><div class="avatar">F</div><div><h4>FatihDeDe*</h4><span>Kurucu</span></div></div>
+<div class="card owner"><div class="avatar">Z</div><div><h4>Zombi</h4><span>Kurucu</span></div></div>
+<div class="card owner"><div class="avatar">R</div><div><h4>Ryjen</h4><span>Kurucu</span></div></div>
+</div>
+</section>
+<section id="premium">
+<div class="title"><div class="eyebrow">JBMENU PREMIUM</div><h3>JBMenu Premium Üyelik</h3><p>JBMenu Premium Üyelik ile sunucudaki özel Premium ayrıcalıklardan yararlanabilirsiniz.</p></div>
+<div class="feature">
+<div class="card"><div class="icon">💎</div><h4>Premium Etiketi</h4><p>Sunucuda isminizin yanında özel Premium yazısı.</p></div>
+<div class="card"><div class="icon">🎨</div><h4>Özel Skinler</h4><p>Premium üyeliğe özel karakter ve görsel ayrıcalıklar.</p></div>
+<div class="card"><div class="icon">🪽</div><h4>Özel Kanatlar</h4><p>Sunucuda kullanabileceğiniz özel kanat seçenekleri.</p></div>
+</div>
+<div class="notice">☆ Premium fiyatları için Steering yetkilileriyle iletişime geçiniz.</div>
+</section>
+
+<section id="jpoint">
+<div class="title"><div class="eyebrow">STEERING ECONOMY</div><h3>JPoint Fiyatları</h3><p>Market menüsünde karakter skini, kanat, hayvan ve benzeri içeriklerde kullanılabilir.</p></div>
+<div class="grid">
+<div class="card"><h4>50000 JPoint</h4><div class="price-row"><span>JPoint Paketi</span><strong class="price">200 TL</strong></div></div>
+<div class="card"><h4>100000 JPoint</h4><div class="price-row"><span>JPoint Paketi</span><strong class="price">400 TL</strong></div></div>
+<div class="card"><h4>150000 JPoint</h4><div class="price-row"><span>JPoint Paketi</span><strong class="price">900 TL</strong></div></div>
+<div class="card"><h4>200000 JPoint</h4><div class="price-row"><span>JPoint Paketi</span><strong class="price">1300 TL</strong></div></div>
+</div>
+</section>
+
+
+<section id="contact">
+  <div class="title">
+    <div class="eyebrow">STEERINGJB CONTACT</div>
+    <h3>İletişim Bilgileri</h3>
+    <p>Yetki, Premium, JPoint, sunucu ve diğer konular için bize ulaşabilirsin.</p>
+  </div>
+  <div class="grid contact-grid">
+    <div class="card">
+      <div class="icon">📸</div>
+      <h4>Instagram</h4>
+      <p>Güncellemeler, duyurular ve topluluk içerikleri için Instagram hesabımızı takip edebilirsin.</p>
+      <div class="price-row">
+        <span>Instagram</span>
+        <a class="price" href="https://www.instagram.com/firattq06/" target="_blank" rel="noopener">@firattq06 ↗</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="icon">🎮</div>
+      <h4>CS 1.6 Sunucusu</h4>
+      <p>Doğrudan sunucuya bağlanmak için aşağıdaki IP adresini kullanabilirsin.</p>
+      <div class="price-row">
+        <span>Sunucu IP</span><strong>95.173.173.120</strong>
+      </div>
+    </div>
+    <div class="card">
+      <div class="icon">👑</div>
+      <h4>Yetki & Satın Alma</h4>
+      <p>Adminlik, Premium ve JPoint işlemleri için yetkili ekiple iletişime geçebilirsin.</p>
+      <div class="price-row">
+        <span>İletişim</span><strong>FıratBey*</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect" style="min-height:70vh">
+<div class="title"><div class="eyebrow">JOIN STEERING</div><h3>Sunucuya Katıl</h3><p>CS 1.6 kuruluysa aşağıdaki butonla Steam bağlantısını başlatmayı deneyebilirsin.</p></div>
+<div class="server-card" style="max-width:700px">
+<div class="server-top"><strong>95.173.173.120</strong><span class="online">● AKTİF</span></div>
+<div class="ip">STEERINGJB JAILBREAK</div>
+<p style="color:var(--muted);line-height:1.7;margin:12px 0 20px">Aile ortamına katıl. Arkadaşlarını çağır, Jailbreak deneyimini Steering'de yaşa.</p>
+<a class="btn primary" href="steam://connect/95.173.173.120">🎮 CS 1.6'YI AÇ VE BAĞLAN</a>
+</div>
+</section>
+</main>
+
+<footer id="footer">
+  <div>
+    <strong style="color:#fff;font-size:15px;letter-spacing:2px">STEERING<span style="color:var(--orange)">JB</span></strong>
+    <p style="margin-top:8px;max-width:330px;line-height:1.7">CS 1.6 Jailbreak topluluğuna katıl, arkadaşlarınla birlikte eğlencenin ve rekabetin tadını çıkar.</p>
+  </div>
+  <div>
+    <strong style="color:#fff">Hızlı Bağlantılar</strong>
+    <p style="margin-top:8px;line-height:1.9">
+      <a href="#home">Ana Sayfa</a> · <a href="#prices">Adminlik</a> ·
+      <a href="#premium">Premium</a> · <a href="#contact">İletişim</a>
+    </p>
+  </div>
+  <div>
+    <strong style="color:#fff">İletişim</strong>
+    <p style="margin-top:8px;line-height:1.9">
+      📸 <a href="https://www.instagram.com/firattq06/" target="_blank" rel="noopener" style="color:#ff8a33">@firattq06</a><br>
+      🎮 Steam: 95.173.173.120
+    </p>
+  </div>
+  <div style="text-align:right">
+    <strong style="color:#fff">STEERINGJB</strong>
+    <p style="margin-top:8px">95.173.173.120<br>© 2026 Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+<script>
+const links=document.querySelectorAll('.nav a');
+const sections=[...document.querySelectorAll('main section')];
+window.addEventListener('scroll',()=>{
+ let current='';
+ sections.forEach(s=>{if(scrollY>=s.offsetTop-180) current=s.id});
+ links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+});
+</script>
+</body>
+</html>
